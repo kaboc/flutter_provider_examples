@@ -17,7 +17,7 @@ class _VlProviderValueState extends State<VlProviderValuePage> {
         title: const Text('ValueListenableProvider.value()'),
       ),
       body: ValueListenableProvider<int>.value(
-        valueListenable: _counter,
+        value: _counter,
         child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(

@@ -17,7 +17,7 @@ class _CnProviderValueState extends State<CnProviderValuePage> {
         title: const Text('ChangeNotifierProvider.value()'),
       ),
       body: ChangeNotifierProvider<CnCounter>.value(
-        notifier: _counter,
+        value: _counter,
         child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(

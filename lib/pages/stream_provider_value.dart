@@ -18,7 +18,7 @@ class _StreamProviderValueState extends State<StreamProviderValuePage> {
         title: const Text('StreamProvider.value()'),
       ),
       body: StreamProvider<int>.value(
-        stream: _streamController.stream,
+        value: _streamController.stream,
         initialData: 0,
         child: _CounterText(),
       ),

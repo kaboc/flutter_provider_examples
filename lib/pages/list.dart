@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'change_notifier_provider.dart';
 import 'change_notifier_provider_value.dart';
+import 'future_provider.dart';
+import 'listenable_provider.dart';
 import 'provider.dart';
 import 'provider_value.dart';
+import 'proxy_provider.dart';
 import 'stream_provider.dart';
+import 'stream_provider_controller.dart';
 import 'stream_provider_value.dart';
 import 'value_listenable_provider.dart';
 import 'value_listenable_provider_value.dart';
@@ -18,11 +22,15 @@ class ListPage extends StatelessWidget {
           _listTile(context, 'Provider()', ProviderPage()),
           _listTile(context, 'Provider.value()', ProviderValuePage()),
           _listTile(context, 'StreamProvider()', StreamProviderPage()),
+          _listTile(context, 'StreamProvider.controller()', StreamProviderCtrlPage()),
           _listTile(context, 'StreamProvider.value()', StreamProviderValuePage()),
           _listTile(context, 'ChangeNotifierProvider()', CnProviderPage()),
           _listTile(context, 'ChangeNotifierProvider.value()', CnProviderValuePage()),
           _listTile(context, 'ValueListenableProvider()', VlProviderPage()),
           _listTile(context, 'ValueListenableProvider.value()', VlProviderValuePage()),
+          _listTile(context, 'ListenableProvider()', ListenableProviderPage()),
+          _listTile(context, 'FutureProvider()', FutureProviderPage()),
+          _listTile(context, 'ProxyProvider()', ProxyProviderPage()),
         ],
       ),
     );

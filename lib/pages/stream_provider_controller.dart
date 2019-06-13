@@ -2,37 +2,32 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class StreamProviderPage extends StatefulWidget {
+class StreamProviderCtrlPage extends StatefulWidget {
   @override
-  _StreamProviderState createState() => _StreamProviderState();
+  _StreamProviderCtrlState createState() => _StreamProviderCtrlState();
 }
 
-class _StreamProviderState extends State<StreamProviderPage> {
-  final _streamController = StreamController<int>();
+class _StreamProviderCtrlState extends State<StreamProviderCtrlPage> {
   int _number = 0;
 
   @override
   Widget build(BuildContext context) {
+    final streamController = StreamController<int>();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('StreamProvider()'),
+        title: const Text('StreamProvider.controller()'),
       ),
-      body: StreamProvider<int>(
-        builder: (_) => _streamController.stream,
+      body: StreamProvider<int>.controller(
+        builder: (_) => streamController,
         initialData: 0,
         child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _streamController.sink.add(++_number),
+        onPressed: () => streamController.sink.add(++_number),
         child: const Icon(Icons.add),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _streamController.close();
-    super.dispose();
   }
 }
 
