@@ -12,7 +12,7 @@ class ProviderPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Provider()'),
         ),
-        body: CounterText(),
+        body: _CounterText(),
         floatingActionButton: _floatingButton(),
       ),
     );
@@ -30,7 +30,7 @@ class ProviderPage extends StatelessWidget {
   }
 }
 
-class CounterText extends StatelessWidget {
+class _CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of<CounterBloc>(context);

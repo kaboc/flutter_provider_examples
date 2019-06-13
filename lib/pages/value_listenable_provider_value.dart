@@ -4,10 +4,10 @@ import '../models/value_notifier_counter.dart';
 
 class VlProviderValuePage extends StatefulWidget {
   @override
-  VlProviderValueState createState() => VlProviderValueState();
+  _VlProviderValueState createState() => _VlProviderValueState();
 }
 
-class VlProviderValueState extends State<VlProviderValuePage> {
+class _VlProviderValueState extends State<VlProviderValuePage> {
   final _counter = VnCounter();
 
   @override
@@ -18,7 +18,7 @@ class VlProviderValueState extends State<VlProviderValuePage> {
       ),
       body: ValueListenableProvider<int>.value(
         valueListenable: _counter,
-        child: CounterText(),
+        child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _counter.increment,
@@ -34,7 +34,7 @@ class VlProviderValueState extends State<VlProviderValuePage> {
   }
 }
 
-class CounterText extends StatelessWidget {
+class _CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final number = Provider.of<int>(context);

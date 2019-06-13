@@ -12,7 +12,7 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('provider samples')),
+      appBar: AppBar(title: const Text('provider examples')),
       body: ListView(
         children: <Widget>[
           _listTile(context, 'Provider()', ProviderPage()),

@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 
 class StreamProviderValuePage extends StatefulWidget {
   @override
-  StreamProviderValueState createState() => StreamProviderValueState();
+  _StreamProviderValueState createState() => _StreamProviderValueState();
 }
 
-class StreamProviderValueState extends State<StreamProviderValuePage> {
+class _StreamProviderValueState extends State<StreamProviderValuePage> {
   final _streamController = StreamController<int>();
   int _number = 0;
 
@@ -20,7 +20,7 @@ class StreamProviderValueState extends State<StreamProviderValuePage> {
       body: StreamProvider<int>.value(
         stream: _streamController.stream,
         initialData: 0,
-        child: CounterText(),
+        child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _streamController.sink.add(++_number),
@@ -36,14 +36,14 @@ class StreamProviderValueState extends State<StreamProviderValuePage> {
   }
 }
 
-class CounterText extends StatelessWidget {
+class _CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final count = Provider.of<int>(context);
+    final number = Provider.of<int>(context);
 
     return Center(
       child: Text(
-        count.toString(),
+        number.toString(),
         style: TextStyle(fontSize: 24.0),
       ),
     );

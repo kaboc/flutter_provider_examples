@@ -4,10 +4,10 @@ import '../models/change_notifier_counter.dart';
 
 class CnProviderValuePage extends StatefulWidget {
   @override
-  CnProviderValueState createState() => CnProviderValueState();
+  _CnProviderValueState createState() => _CnProviderValueState();
 }
 
-class CnProviderValueState extends State<CnProviderValuePage> {
+class _CnProviderValueState extends State<CnProviderValuePage> {
   final _counter = CnCounter();
 
   @override
@@ -18,7 +18,7 @@ class CnProviderValueState extends State<CnProviderValuePage> {
       ),
       body: ChangeNotifierProvider<CnCounter>.value(
         notifier: _counter,
-        child: CounterText(),
+        child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _counter.increment,
@@ -34,7 +34,7 @@ class CnProviderValueState extends State<CnProviderValuePage> {
   }
 }
 
-class CounterText extends StatelessWidget {
+class _CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<CnCounter>(context);

@@ -11,7 +11,7 @@ class CnProviderPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('ChangeNotifierProvider()'),
         ),
-        body: CounterText(),
+        body: _CounterText(),
         floatingActionButton: _floatingButton(),
       ),
     );
@@ -29,7 +29,7 @@ class CnProviderPage extends StatelessWidget {
   }
 }
 
-class CounterText extends StatelessWidget {
+class _CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<CnCounter>(context);

@@ -13,7 +13,7 @@ class VlProviderPage extends StatelessWidget {
       ),
       body: ValueListenableProvider<int>(
         builder: (_) => counter,
-        child: CounterText(),
+        child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: counter.increment,
@@ -23,7 +23,7 @@ class VlProviderPage extends StatelessWidget {
   }
 }
 
-class CounterText extends StatelessWidget {
+class _CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final number = Provider.of<int>(context);
