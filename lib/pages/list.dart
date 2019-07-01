@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'change_notifier_provider.dart';
 import 'change_notifier_provider_value.dart';
+import 'dependency_injection.dart';
 import 'future_provider.dart';
 import 'listenable_provider.dart';
 import 'provider.dart';
@@ -31,6 +32,7 @@ class ListPage extends StatelessWidget {
           _listTile(context, 'ListenableProvider()', ListenableProviderPage()),
           _listTile(context, 'FutureProvider()', FutureProviderPage()),
           _listTile(context, 'ProxyProvider()', ProxyProviderPage()),
+          _listTile(context, 'Dependency Injection', DependencyInjectionPage()),
         ],
       ),
     );
@@ -40,9 +42,8 @@ class ListPage extends StatelessWidget {
     return ListTile(
       title: Text(title),
       trailing: const Icon(Icons.keyboard_arrow_right),
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => pageWidget),
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => pageWidget),
       ),
     );
   }
