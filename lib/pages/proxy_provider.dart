@@ -13,7 +13,10 @@ class ProxyProviderPage extends StatelessWidget {
           dispose: (_, decCounter) => decCounter.dispose(),
         ),
         ListenableProxyProvider<VnCounter, HexCounter>(
-          builder: (_, decCounter, __) => HexCounter(decCounter.value),
+          initialBuilder: (_) => HexCounter(),
+          builder: (_, decCounter, prevHexCounter) {
+            return prevHexCounter..setValue(decCounter.value);
+          },
           dispose: (_, hexCounter) => hexCounter.dispose(),
         ),
       ],

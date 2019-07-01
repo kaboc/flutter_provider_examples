@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HexCounter extends ValueNotifier<String> {
-  @override
-  String value;
+  HexCounter() : super('0');
 
-  HexCounter(int decimal)
-      : value = decimal.toRadixString(16),
-        super(decimal.toString());
+  void setValue(int decimal) {
+    value = decimal.toRadixString(16);
+  }
 }
