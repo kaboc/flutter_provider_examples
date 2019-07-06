@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/hex_notifier_counter.dart';
+import '../models/hex_counter.dart';
 import '../models/value_notifier_counter.dart';
 
 class ProxyProviderPage extends StatelessWidget {
@@ -8,16 +8,11 @@ class ProxyProviderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ListenableProvider<VnCounter>(
+        ChangeNotifierProvider<VnCounter>(
           builder: (_) => VnCounter(),
-          dispose: (_, decCounter) => decCounter.dispose(),
         ),
-        ListenableProxyProvider<VnCounter, HexCounter>(
-          initialBuilder: (_) => HexCounter(),
-          builder: (_, decCounter, prevHexCounter) {
-            return prevHexCounter..setValue(decCounter.value);
-          },
-          dispose: (_, hexCounter) => hexCounter.dispose(),
+        ProxyProvider<VnCounter, HexCounter>(
+          builder: (_, decCounter, __) => HexCounter(decCounter.value),
         ),
       ],
       child: Scaffold(
@@ -60,7 +55,7 @@ class _CounterResults extends StatelessWidget {
           const SizedBox(height: 32.0),
           const Text('Hexadecimal'),
           Text(
-            hexCounter.value.toString(),
+            hexCounter.valueString,
             style: TextStyle(fontSize: 24.0),
           ),
         ],
