@@ -3,6 +3,7 @@ import 'change_notifier_provider.dart';
 import 'change_notifier_provider_value.dart';
 import 'dependency_injection.dart';
 import 'future_provider.dart';
+import 'listenable_provider.dart';
 import 'provider.dart';
 import 'provider_value.dart';
 import 'proxy_provider.dart';
@@ -28,6 +29,7 @@ class ListPage extends StatelessWidget {
           _listTile(context, 'ChangeNotifierProvider.value()', CnProviderValuePage()),
           _listTile(context, 'ValueListenableProvider()', VlProviderPage()),
           _listTile(context, 'ValueListenableProvider.value()', VlProviderValuePage()),
+          _listTile(context, 'ListenableProvider()', ListenableProviderPage()),
           _listTile(context, 'FutureProvider()', FutureProviderPage()),
           _listTile(context, 'ProxyProvider()', ProxyProviderPage()),
           _listTile(context, 'Dependency Injection', DependencyInjectionPage()),
