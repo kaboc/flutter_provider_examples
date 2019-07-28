@@ -12,19 +12,20 @@ class CnProviderPage extends StatelessWidget {
           title: const Text('ChangeNotifierProvider()'),
         ),
         body: _CounterText(),
-        floatingActionButton: _floatingButton(),
+        floatingActionButton: _FloatingButton(),
       ),
     );
   }
+}
 
-  Widget _floatingButton() {
-    return Consumer<CnCounter>(
-      builder: (_, counter, __) {
-        return FloatingActionButton(
-          onPressed: counter.increment,
-          child: const Icon(Icons.add),
-        );
-      },
+class _FloatingButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final counter = Provider.of<CnCounter>(context, listen: false);
+
+    return FloatingActionButton(
+      onPressed: counter.increment,
+      child: const Icon(Icons.add),
     );
   }
 }

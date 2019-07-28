@@ -16,42 +16,44 @@ class DependencyInjectionPage extends StatelessWidget {
             child: Scaffold(
               appBar: AppBar(
                 title: const Text('Dependency Injection'),
-                actions: <Widget>[_switch()],
+                actions: <Widget>[_Switch()],
               ),
               body: _CounterText(),
-              floatingActionButton: _floatingButton(),
+              floatingActionButton: _FloatingButton(),
             ),
           );
         },
       ),
     );
   }
+}
 
-  Widget _floatingButton() {
-    return Consumer<CounterInterface>(
-      builder: (_, counter, __) {
-        return FloatingActionButton(
-          onPressed: counter.increment,
-          child: const Icon(Icons.add),
-          backgroundColor:
-              counter.runtimeType == DecCounter ? Colors.blue : Colors.green,
-        );
+class _Switch extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final container = Provider.of<CounterContainer>(context, listen: false);
+    final counter = container.counter;
+
+    return Switch(
+      value: counter.runtimeType == BinCounter,
+      onChanged: (value) {
+        container.newCounter = value ? BinCounter() : DecCounter();
+        container.counter.setNumber(counter.number);
       },
+      activeColor: Colors.white,
     );
   }
+}
 
-  Widget _switch() {
-    return Consumer2<CounterContainer, CounterInterface>(
-      builder: (_, container, counter, __) {
-        return Switch(
-          value: counter.runtimeType == BinCounter,
-          onChanged: (value) {
-            container.newCounter = value ? BinCounter() : DecCounter();
-            container.counter.setNumber(counter.number);
-          },
-          activeColor: Colors.white,
-        );
-      },
+class _FloatingButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final counter = Provider.of<CounterInterface>(context, listen: false);
+
+    return FloatingActionButton(
+      onPressed: counter.increment,
+      child: const Icon(Icons.add),
+      backgroundColor: counter.runtimeType == DecCounter ? Colors.blue : Colors.green,
     );
   }
 }
