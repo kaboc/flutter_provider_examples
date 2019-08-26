@@ -12,7 +12,9 @@ class ProxyProviderPage extends StatelessWidget {
           builder: (_) => VnCounter(),
         ),
         ProxyProvider<VnCounter, HexCounter>(
-          builder: (_, decCounter, __) => HexCounter(decCounter.value),
+          initialBuilder: (_) => HexCounter(),
+          builder: (_, decCounter, prevHexCounter) =>
+              prevHexCounter..newValue = decCounter.value,
         ),
       ],
       child: Scaffold(

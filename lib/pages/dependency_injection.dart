@@ -53,7 +53,8 @@ class _FloatingButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: counter.increment,
       child: const Icon(Icons.add),
-      backgroundColor: counter.runtimeType == DecCounter ? Colors.blue : Colors.green,
+      backgroundColor:
+          counter.runtimeType == DecCounter ? Colors.blue : Colors.green,
     );
   }
 }
