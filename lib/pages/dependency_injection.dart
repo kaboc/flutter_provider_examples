@@ -5,25 +5,27 @@ import '../models/dependency_injection_counter.dart';
 class DependencyInjectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<CounterContainer>(
-      builder: (_) {
-        return CounterContainer()..newCounter = DecCounter();
-      },
-      child: Consumer<CounterContainer>(
-        builder: (_, container, __) {
-          return ChangeNotifierProvider<CounterInterface>.value(
-            value: container.counter,
-            child: Scaffold(
-              appBar: AppBar(
-                title: const Text('Dependency Injection'),
-                actions: <Widget>[_Switch()],
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CounterContainer>(
+          builder: (_) => CounterContainer()..newCounter = DecCounter(),
+        ),
+        Consumer<CounterContainer>(
+          builder: (_, container, __) {
+            return ChangeNotifierProvider<CounterInterface>.value(
+              value: container.counter,
+              child: Scaffold(
+                appBar: AppBar(
+                  title: const Text('Dependency Injection'),
+                  actions: <Widget>[_Switch()],
+                ),
+                body: _CounterText(),
+                floatingActionButton: _FloatingButton(),
               ),
-              body: _CounterText(),
-              floatingActionButton: _FloatingButton(),
-            ),
-          );
-        },
-      ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
