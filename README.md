@@ -1,6 +1,11 @@
 # Examples of Flutter's provider package
 
-This repository shows how to use the provider package.  
+This repository shows how to use the provider package.
+
+![Screemcast1](doc/images/screencast1.gif)
+![Screemcast2](doc/images/screencast2.gif)
+![Screemcast3](doc/images/screencast3.gif)
+
 Each example is described in my articles below:
 
 * [[Flutter] package:provider の各プロバイダの詳細 - Qiita](https://qiita.com/kabochapo/items/a90d8438243c27e2f6d9)
