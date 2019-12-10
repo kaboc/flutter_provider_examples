@@ -19,7 +19,7 @@ class _StreamProviderCtrlState extends State<StreamProviderCtrlPage> {
         title: const Text('StreamProvider.controller()'),
       ),
       body: StreamProvider<int>.controller(
-        builder: (_) => streamController,
+        create: (_) => streamController,
         initialData: 0,
         child: _CounterText(),
       ),

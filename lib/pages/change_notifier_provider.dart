@@ -6,7 +6,7 @@ class CnProviderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<CnCounter>(
-      builder: (_) => CnCounter(),
+      create: (_) => CnCounter(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('ChangeNotifierProvider()'),

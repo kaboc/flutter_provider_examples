@@ -18,7 +18,7 @@ class _StreamProviderState extends State<StreamProviderPage> {
         title: const Text('StreamProvider()'),
       ),
       body: StreamProvider<int>(
-        builder: (_) => _streamController.stream,
+        create: (_) => _streamController.stream,
         initialData: 0,
         child: _CounterText(),
       ),

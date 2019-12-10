@@ -6,7 +6,7 @@ class ProviderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider<CounterBloc>(
-      builder: (_) => CounterBloc(),
+      create: (_) => CounterBloc(),
       dispose: (_, bloc) => bloc.dispose(),
       child: Scaffold(
         appBar: AppBar(

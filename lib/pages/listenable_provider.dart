@@ -18,7 +18,7 @@ class _ListenableProviderState extends State<ListenableProviderPage>
         title: const Text('ListenableProvider()'),
       ),
       body: ListenableProvider<AnimationController>(
-        builder: (_) => AnimationController(
+        create: (_) => AnimationController(
           duration: const Duration(seconds: 10),
           vsync: this,
         )..repeat(),

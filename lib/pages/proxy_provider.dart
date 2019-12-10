@@ -9,11 +9,11 @@ class ProxyProviderPage extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<VnCounter>(
-          builder: (_) => VnCounter(),
+          create: (_) => VnCounter(),
         ),
         ProxyProvider<VnCounter, HexCounter>(
-          initialBuilder: (_) => HexCounter(),
-          builder: (_, decCounter, prevHexCounter) =>
+          create: (_) => HexCounter(),
+          update: (_, decCounter, prevHexCounter) =>
               prevHexCounter..newValue = decCounter.value,
         ),
       ],

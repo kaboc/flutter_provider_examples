@@ -12,7 +12,7 @@ class VlProviderPage extends StatelessWidget {
         title: const Text('ValueListenableProvider()'),
       ),
       body: ValueListenableProvider<int>(
-        builder: (_) => counter,
+        create: (_) => counter,
         child: _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(

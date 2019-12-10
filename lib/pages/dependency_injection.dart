@@ -8,7 +8,7 @@ class DependencyInjectionPage extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<CounterContainer>(
-          builder: (_) => CounterContainer()..newCounter = DecCounter(),
+          create: (_) => CounterContainer()..newCounter = DecCounter(),
         ),
         Consumer<CounterContainer>(
           builder: (_, container, __) {
