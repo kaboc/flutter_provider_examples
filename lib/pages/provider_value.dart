@@ -43,10 +43,7 @@ class _CounterText extends StatelessWidget {
       stream: bloc.value,
       builder: (context, snapshot) {
         return Center(
-          child: Text(
-            snapshot?.data ?? '0',
-            style: TextStyle(fontSize: 24.0),
-          ),
+          child: Text(snapshot?.data ?? '0'),
         );
       },
     );

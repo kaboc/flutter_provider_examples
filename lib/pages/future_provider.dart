@@ -29,7 +29,7 @@ class _FutureText extends StatelessWidget {
     return Center(
       child: Text(
         description,
-        style: TextStyle(fontSize: 18.0),
+        style: const TextStyle(fontSize: 20.0),
       ),
     );
   }

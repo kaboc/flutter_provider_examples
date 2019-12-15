@@ -37,10 +37,7 @@ class _CounterText extends StatelessWidget {
     final number = Provider.of<int>(context);
 
     return Center(
-      child: Text(
-        number.toString(),
-        style: TextStyle(fontSize: 24.0),
-      ),
+      child: Text(number.toString()),
     );
   }
 }

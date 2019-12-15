@@ -50,17 +50,17 @@ class _CounterResults extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text('Decimal'),
-          Text(
-            decCounter.value.toString(),
-            style: TextStyle(fontSize: 24.0),
+          const Text(
+            'Decimal',
+            style: TextStyle(fontSize: 16.0),
           ),
+          Text(decCounter.value.toString()),
           const SizedBox(height: 32.0),
-          const Text('Hexadecimal'),
-          Text(
-            hexCounter.valueString,
-            style: TextStyle(fontSize: 24.0),
+          const Text(
+            'Hexadecimal',
+            style: TextStyle(fontSize: 16.0),
           ),
+          Text(hexCounter.valueString),
         ],
       ),
     );

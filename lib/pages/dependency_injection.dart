@@ -70,11 +70,11 @@ class _CounterText extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(counter.runtimeType.toString()),
           Text(
-            counter.numberString,
-            style: TextStyle(fontSize: 24.0),
+            counter.runtimeType.toString(),
+            style: const TextStyle(fontSize: 16.0),
           ),
+          Text(counter.numberString),
         ],
       ),
     );

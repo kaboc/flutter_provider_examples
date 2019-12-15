@@ -36,10 +36,7 @@ class _CounterText extends StatelessWidget {
     final counter = Provider.of<CnCounter>(context);
 
     return Center(
-      child: Text(
-        counter.number.toString(),
-        style: TextStyle(fontSize: 24.0),
-      ),
+      child: Text(counter.number.toString()),
     );
   }
 }
