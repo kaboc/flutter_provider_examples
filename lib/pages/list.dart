@@ -43,7 +43,7 @@ class ListPage extends StatelessWidget {
       title: Text(title),
       trailing: const Icon(Icons.keyboard_arrow_right),
       onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => pageWidget),
+        MaterialPageRoute<void>(builder: (_) => pageWidget),
       ),
     );
   }
