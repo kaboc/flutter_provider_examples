@@ -33,7 +33,7 @@ class DependencyInjectionPage extends StatelessWidget {
 class _Switch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final container = Provider.of<CounterContainer>(context, listen: false);
+    final container = Provider.of<CounterContainer>(context);
     final counter = container.counter;
 
     return Switch(
@@ -50,7 +50,7 @@ class _Switch extends StatelessWidget {
 class _FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CounterInterface>(context, listen: false);
+    final counter = Provider.of<CounterInterface>(context);
 
     return FloatingActionButton(
       onPressed: counter.increment,

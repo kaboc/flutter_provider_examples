@@ -31,7 +31,7 @@ class ProxyProviderPage extends StatelessWidget {
 class _FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<VnCounter>(context, listen: false);
+    final counter = Provider.of<VnCounter>(context);
 
     return FloatingActionButton(
       onPressed: counter.increment,

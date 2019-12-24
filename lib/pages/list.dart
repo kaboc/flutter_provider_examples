@@ -8,7 +8,6 @@ import 'provider.dart';
 import 'provider_value.dart';
 import 'proxy_provider.dart';
 import 'stream_provider.dart';
-import 'stream_provider_controller.dart';
 import 'stream_provider_value.dart';
 import 'value_listenable_provider.dart';
 import 'value_listenable_provider_value.dart';
@@ -23,7 +22,6 @@ class ListPage extends StatelessWidget {
           _listTile(context, 'Provider()', ProviderPage()),
           _listTile(context, 'Provider.value()', ProviderValuePage()),
           _listTile(context, 'StreamProvider()', StreamProviderPage()),
-          _listTile(context, 'StreamProvider.controller()', StreamProviderCtrlPage()),
           _listTile(context, 'StreamProvider.value()', StreamProviderValuePage()),
           _listTile(context, 'ChangeNotifierProvider()', CnProviderPage()),
           _listTile(context, 'ChangeNotifierProvider.value()', CnProviderValuePage()),
