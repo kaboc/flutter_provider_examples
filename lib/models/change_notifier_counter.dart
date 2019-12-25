@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class CnCounter with ChangeNotifier {
   int _number = 0;

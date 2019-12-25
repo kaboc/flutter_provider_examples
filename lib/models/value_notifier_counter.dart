@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class VnCounter extends ValueNotifier<int> {
   VnCounter() : super(0);
