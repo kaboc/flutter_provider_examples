@@ -7,6 +7,7 @@ import 'listenable_provider.dart';
 import 'provider.dart';
 import 'provider_value.dart';
 import 'proxy_provider.dart';
+import 'selector.dart';
 import 'stream_provider.dart';
 import 'stream_provider_value.dart';
 import 'value_listenable_provider.dart';
@@ -30,6 +31,7 @@ class ListPage extends StatelessWidget {
           _listTile(context, 'ListenableProvider()', ListenableProviderPage()),
           _listTile(context, 'FutureProvider()', FutureProviderPage()),
           _listTile(context, 'ProxyProvider()', ProxyProviderPage()),
+          _listTile(context, 'Selector()', SelectorPage()),
           _listTile(context, 'Dependency Injection', DependencyInjectionPage()),
         ],
       ),
