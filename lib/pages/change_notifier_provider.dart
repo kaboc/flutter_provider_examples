@@ -21,7 +21,7 @@ class CnProviderPage extends StatelessWidget {
 class _FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CnCounter>(context);
+    final counter = Provider.of<CnCounter>(context, listen: false);
 
     return FloatingActionButton(
       onPressed: counter.increment,
