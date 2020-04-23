@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FutureProviderPage extends StatelessWidget {
+  const FutureProviderPage();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,13 +17,15 @@ class FutureProviderPage extends StatelessWidget {
           () => '3 seconds elapsed.',
         ),
         initialData: 'Wait for 3 seconds...',
-        child: _FutureText(),
+        child: const _FutureText(),
       ),
     );
   }
 }
 
 class _FutureText extends StatelessWidget {
+  const _FutureText();
+
   @override
   Widget build(BuildContext context) {
     final description = Provider.of<String>(context);

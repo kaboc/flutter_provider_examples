@@ -1,7 +1,7 @@
 class HexCounter {
-  int _decimal;
-
   HexCounter();
+
+  int _decimal;
 
   set newValue(int newValue) => _decimal = newValue;
 

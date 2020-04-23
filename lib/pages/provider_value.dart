@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../blocs/counter_bloc.dart';
 
 class ProviderValuePage extends StatefulWidget {
+  const ProviderValuePage();
+
   @override
   _ProviderValueState createState() => _ProviderValueState();
 }
@@ -18,7 +20,7 @@ class _ProviderValueState extends State<ProviderValuePage> {
       ),
       body: Provider<CounterBloc>.value(
         value: _bloc,
-        child: _CounterText(),
+        child: const _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _bloc.increment,
@@ -35,6 +37,8 @@ class _ProviderValueState extends State<ProviderValuePage> {
 }
 
 class _CounterText extends StatelessWidget {
+  const _CounterText();
+
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of<CounterBloc>(context);

@@ -19,32 +19,41 @@ class ListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('provider examples')),
       body: ListView(
-        children: <Widget>[
-          _listTile(context, 'Provider()', ProviderPage()),
-          _listTile(context, 'Provider.value()', ProviderValuePage()),
-          _listTile(context, 'StreamProvider()', StreamProviderPage()),
-          _listTile(context, 'StreamProvider.value()', StreamProviderValuePage()),
-          _listTile(context, 'ChangeNotifierProvider()', CnProviderPage()),
-          _listTile(context, 'ChangeNotifierProvider.value()', CnProviderValuePage()),
-          _listTile(context, 'ValueListenableProvider()', VlProviderPage()),
-          _listTile(context, 'ValueListenableProvider.value()', VlProviderValuePage()),
-          _listTile(context, 'ListenableProvider()', ListenableProviderPage()),
-          _listTile(context, 'FutureProvider()', FutureProviderPage()),
-          _listTile(context, 'ProxyProvider()', ProxyProviderPage()),
-          _listTile(context, 'Selector()', SelectorPage()),
-          _listTile(context, 'Dependency Injection', DependencyInjectionPage()),
+        children: const <Widget>[
+          _ListTile(title: 'Provider()', page: ProviderPage()),
+          _ListTile(title: 'Provider.value()', page: ProviderValuePage()),
+          _ListTile(title: 'StreamProvider()', page: StreamProviderPage()),
+          _ListTile(title: 'StreamProvider.value()', page: StreamProviderValuePage()),
+          _ListTile(title: 'ChangeNotifierProvider()', page: CnProviderPage()),
+          _ListTile(title: 'ChangeNotifierProvider.value()', page: CnProviderValuePage()),
+          _ListTile(title: 'ValueListenableProvider()', page: VlProviderPage()),
+          _ListTile(title: 'ValueListenableProvider.value()', page: VlProviderValuePage()),
+          _ListTile(title: 'ListenableProvider()', page: ListenableProviderPage()),
+          _ListTile(title: 'FutureProvider()', page: FutureProviderPage()),
+          _ListTile(title: 'ProxyProvider()', page: ProxyProviderPage()),
+          _ListTile(title: 'Selector()', page: SelectorPage()),
+          _ListTile(title: 'Dependency Injection', page: DependencyInjectionPage()),
         ],
       ),
     );
   }
+}
 
-  Widget _listTile(BuildContext context, String title, Widget pageWidget) {
+class _ListTile extends StatelessWidget {
+  const _ListTile({@required this.title, @required this.page});
+
+  final String title;
+  final Widget page;
+
+  @override
+  Widget build(BuildContext context) {
     return ListTile(
       title: Text(title),
       trailing: const Icon(Icons.keyboard_arrow_right),
       onTap: () => Navigator.of(context).push(
-        MaterialPageRoute<void>(builder: (_) => pageWidget),
+        MaterialPageRoute<void>(builder: (_) => page),
       ),
     );
   }
 }
+

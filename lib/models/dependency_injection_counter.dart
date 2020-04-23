@@ -33,10 +33,4 @@ class CounterContainer with ChangeNotifier {
     _counter = counter;
     notifyListeners();
   }
-
-  @override
-  void dispose() {
-    _counter?.dispose();
-    super.dispose();
-  }
 }

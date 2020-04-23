@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../models/dependency_injection_counter.dart';
 
 class DependencyInjectionPage extends StatelessWidget {
+  const DependencyInjectionPage();
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -17,10 +19,10 @@ class DependencyInjectionPage extends StatelessWidget {
               child: Scaffold(
                 appBar: AppBar(
                   title: const Text('Dependency Injection'),
-                  actions: <Widget>[_Switch()],
+                  actions: const <Widget>[_Switch()],
                 ),
-                body: _CounterText(),
-                floatingActionButton: _FloatingButton(),
+                body: const _CounterText(),
+                floatingActionButton: const _FloatingButton(),
               ),
             );
           },
@@ -31,9 +33,11 @@ class DependencyInjectionPage extends StatelessWidget {
 }
 
 class _Switch extends StatelessWidget {
+  const _Switch();
+
   @override
   Widget build(BuildContext context) {
-    final container = Provider.of<CounterContainer>(context, listen: false);
+    final container = Provider.of<CounterContainer>(context);
     final counter = container.counter;
 
     return Switch(
@@ -48,9 +52,11 @@ class _Switch extends StatelessWidget {
 }
 
 class _FloatingButton extends StatelessWidget {
+  const _FloatingButton();
+
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CounterInterface>(context, listen: false);
+    final counter = Provider.of<CounterInterface>(context);
 
     return FloatingActionButton(
       onPressed: counter.increment,
@@ -62,6 +68,8 @@ class _FloatingButton extends StatelessWidget {
 }
 
 class _CounterText extends StatelessWidget {
+  const _CounterText();
+
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<CounterInterface>(context);

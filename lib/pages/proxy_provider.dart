@@ -4,6 +4,8 @@ import '../models/hex_counter.dart';
 import '../models/value_notifier_counter.dart';
 
 class ProxyProviderPage extends StatelessWidget {
+  const ProxyProviderPage();
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -21,14 +23,16 @@ class ProxyProviderPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('ProxyProvider()'),
         ),
-        body: _CounterResults(),
-        floatingActionButton: _FloatingButton(),
+        body: const _CounterResults(),
+        floatingActionButton: const _FloatingButton(),
       ),
     );
   }
 }
 
 class _FloatingButton extends StatelessWidget {
+  const _FloatingButton();
+
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<VnCounter>(context, listen: false);
@@ -41,6 +45,8 @@ class _FloatingButton extends StatelessWidget {
 }
 
 class _CounterResults extends StatelessWidget {
+  const _CounterResults();
+
   @override
   Widget build(BuildContext context) {
     final decCounter = Provider.of<VnCounter>(context);

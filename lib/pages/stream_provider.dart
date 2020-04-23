@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class StreamProviderPage extends StatefulWidget {
+  const StreamProviderPage();
+
   @override
   _StreamProviderState createState() => _StreamProviderState();
 }
@@ -20,7 +22,7 @@ class _StreamProviderState extends State<StreamProviderPage> {
       body: StreamProvider<int>(
         create: (_) => _streamController.stream,
         initialData: 0,
-        child: _CounterText(),
+        child: const _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _streamController.sink.add(++_number),
@@ -37,6 +39,8 @@ class _StreamProviderState extends State<StreamProviderPage> {
 }
 
 class _CounterText extends StatelessWidget {
+  const _CounterText();
+
   @override
   Widget build(BuildContext context) {
     final number = Provider.of<int>(context);

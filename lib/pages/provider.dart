@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../blocs/counter_bloc.dart';
 
 class ProviderPage extends StatelessWidget {
+  const ProviderPage();
+
   @override
   Widget build(BuildContext context) {
     return Provider<CounterBloc>(
@@ -12,7 +14,7 @@ class ProviderPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Provider()'),
         ),
-        body: _CounterText(),
+        body: const _CounterText(),
         floatingActionButton: _floatingButton(),
       ),
     );
@@ -31,6 +33,8 @@ class ProviderPage extends StatelessWidget {
 }
 
 class _CounterText extends StatelessWidget {
+  const _CounterText();
+
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of<CounterBloc>(context);

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../models/change_notifier_counter.dart';
 
 class CnProviderValuePage extends StatefulWidget {
+  const CnProviderValuePage();
+
   @override
   _CnProviderValueState createState() => _CnProviderValueState();
 }
@@ -18,7 +20,7 @@ class _CnProviderValueState extends State<CnProviderValuePage> {
       ),
       body: ChangeNotifierProvider<CnCounter>.value(
         value: _counter,
-        child: _CounterText(),
+        child: const _CounterText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _counter.increment,
@@ -35,6 +37,8 @@ class _CnProviderValueState extends State<CnProviderValuePage> {
 }
 
 class _CounterText extends StatelessWidget {
+  const _CounterText();
+
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<CnCounter>(context);
