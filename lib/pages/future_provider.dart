@@ -10,7 +10,7 @@ class FutureProviderPage extends StatelessWidget {
     return FutureProvider<String>(
       create: (_) => Future.delayed(
         const Duration(seconds: 3),
-            () => '3 seconds elapsed.',
+        () => '3 seconds elapsed.',
       ),
       initialData: 'Wait for 3 seconds...',
       child: Scaffold(

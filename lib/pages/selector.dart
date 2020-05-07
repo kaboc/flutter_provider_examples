@@ -43,8 +43,9 @@ class _CounterText extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Consumer<CnCounter>(
-            builder: (_, counter, __) => Text(counter.number.toString()),
+          Selector<CnCounter, int>(
+            selector: (_, counter) => counter.number,
+            builder: (_, number, __) => Text(number.toString()),
           ),
           const SizedBox(height: 32.0),
           const Text(

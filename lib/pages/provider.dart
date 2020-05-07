@@ -21,13 +21,17 @@ class ProviderPage extends StatelessWidget {
   }
 
   Widget _floatingButton() {
+    // Using Consumer here rather than Selector does not affect the performance
+    // badly because CounterBloc is not ChangeNotifier, meaning that changes of
+    // values in CounterBloc does not trigger rebuilds.
     return Consumer<CounterBloc>(
-      builder: (_, bloc, __) {
+      builder: (_, bloc, child) {
         return FloatingActionButton(
           onPressed: bloc.increment,
-          child: const Icon(Icons.add),
+          child: child,
         );
       },
+      child: const Icon(Icons.add),
     );
   }
 }
@@ -37,11 +41,11 @@ class _CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<CounterBloc>(context);
+    final bloc = Provider.of<CounterBloc>(context, listen: false);
 
     return StreamBuilder<String>(
       stream: bloc.value,
-      builder: (context, snapshot) {
+      builder: (_, snapshot) {
         return Center(
           child: Text(snapshot.data ?? '0'),
         );

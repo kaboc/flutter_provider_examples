@@ -13,21 +13,22 @@ class DependencyInjectionPage extends StatelessWidget {
           create: (_) => CounterContainer()..newCounter = DecCounter(),
         ),
         Consumer<CounterContainer>(
-          builder: (_, container, __) {
+          builder: (_, container, child) {
             return ChangeNotifierProvider<CounterInterface>.value(
               value: container.counter,
-              child: Scaffold(
-                appBar: AppBar(
-                  title: const Text('Dependency Injection'),
-                  actions: const <Widget>[_Switch()],
-                ),
-                body: const _CounterText(),
-                floatingActionButton: const _FloatingButton(),
-              ),
+              child: child,
             );
           },
         ),
       ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Dependency Injection'),
+          actions: const <Widget>[_Switch()],
+        ),
+        body: const _CounterText(),
+        floatingActionButton: const _FloatingButton(),
+      ),
     );
   }
 }

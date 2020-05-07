@@ -66,7 +66,7 @@ class _CounterResults extends StatelessWidget {
             'Hexadecimal',
             style: TextStyle(fontSize: 16.0),
           ),
-          Text(hexCounter.valueString),
+          Text(hexCounter.hex),
         ],
       ),
     );
