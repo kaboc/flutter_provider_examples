@@ -41,10 +41,10 @@ class _CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CnCounter>(context);
+    final number = context.select((CnCounter counter) => counter.number);
 
     return Center(
-      child: Text(counter.number.toString()),
+      child: Text(number.toString()),
     );
   }
 }

@@ -41,7 +41,7 @@ class _CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final number = Provider.of<int>(context);
+    final number = context.watch<int>();
 
     return Center(
       child: Text(number.toString()),

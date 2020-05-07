@@ -35,10 +35,8 @@ class _FloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<VnCounter>(context, listen: false);
-
     return FloatingActionButton(
-      onPressed: counter.increment,
+      onPressed: () => context.read<VnCounter>().increment(),
       child: const Icon(Icons.add),
     );
   }
@@ -49,8 +47,8 @@ class _CounterResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final decCounter = Provider.of<VnCounter>(context);
-    final hexCounter = Provider.of<HexCounter>(context);
+    final dec = context.select((VnCounter counter) => counter.value);
+    final hex = context.select((HexCounter counter) => counter.hex);
 
     return Center(
       child: Column(
@@ -60,13 +58,13 @@ class _CounterResults extends StatelessWidget {
             'Decimal',
             style: TextStyle(fontSize: 16.0),
           ),
-          Text(decCounter.value.toString()),
+          Text(dec.toString()),
           const SizedBox(height: 32.0),
           const Text(
             'Hexadecimal',
             style: TextStyle(fontSize: 16.0),
           ),
-          Text(hexCounter.hex),
+          Text(hex),
         ],
       ),
     );

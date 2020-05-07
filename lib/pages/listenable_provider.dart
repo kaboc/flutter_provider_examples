@@ -36,10 +36,11 @@ class _Spinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<AnimationController>(context);
+    final value =
+        context.select((AnimationController controller) => controller.value);
 
     return Transform.rotate(
-      angle: controller.value * 2.0 * math.pi,
+      angle: value * 2.0 * math.pi,
       child: const SizedBox(
         width: 200.0,
         height: 200.0,

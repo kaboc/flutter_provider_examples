@@ -25,10 +25,8 @@ class _FloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CnCounter>(context);
-
     return FloatingActionButton(
-      onPressed: counter.increment,
+      onPressed: () => context.read<CnCounter>().increment(),
       child: const Icon(Icons.add),
     );
   }

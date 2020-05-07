@@ -28,7 +28,7 @@ class _FutureText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final description = Provider.of<String>(context);
+    final description = context.watch<String>();
 
     return Center(
       child: Text(

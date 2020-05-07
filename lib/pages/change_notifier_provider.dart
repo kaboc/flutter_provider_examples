@@ -25,10 +25,14 @@ class _FloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CnCounter>(context, listen: false);
-
     return FloatingActionButton(
-      onPressed: counter.increment,
+      // OK
+      // - onPressed: () => context.read<CnCounter>().increment()
+      // - onPressed: context.watch<CnCounter>().increment
+      // Bad
+      // - onPressed: context.read<CnCounter>().increment
+      // - onPressed: () => context.watch<CnCounter>().increment()
+      onPressed: () => context.read<CnCounter>().increment(),
       child: const Icon(Icons.add),
     );
   }
@@ -39,10 +43,10 @@ class _CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CnCounter>(context);
+    final number = context.select((CnCounter counter) => counter.number);
 
     return Center(
-      child: Text(counter.number.toString()),
+      child: Text(number.toString()),
     );
   }
 }

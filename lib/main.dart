@@ -7,7 +7,7 @@ void main() => runApp(
         title: 'provider examples',
         theme: ThemeData(
           textTheme: const TextTheme(
-            body1: TextStyle(fontSize: 32.0),
+            bodyText2: TextStyle(fontSize: 48.0),
           ),
         ),
       ),

@@ -41,6 +41,9 @@ class _CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Using context.read<CounterBloc>() inside build() causes an exception.
+    // Either of Provider.of(), context.watch() or context.select() has to be
+    // used instead.
     final bloc = Provider.of<CounterBloc>(context, listen: false);
 
     return StreamBuilder<String>(

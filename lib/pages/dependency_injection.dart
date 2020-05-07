@@ -7,20 +7,14 @@ class DependencyInjectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<CounterContainer>(
-          create: (_) => CounterContainer()..newCounter = DecCounter(),
-        ),
-        Consumer<CounterContainer>(
-          builder: (_, container, child) {
-            return ChangeNotifierProvider<CounterInterface>.value(
-              value: container.counter,
-              child: child,
-            );
-          },
-        ),
-      ],
+    return ChangeNotifierProvider<CounterContainer>(
+      create: (_) => CounterContainer()..newCounter = DecCounter(),
+      builder: (context, child) {
+        return ChangeNotifierProvider<CounterInterface>.value(
+          value: context.watch<CounterContainer>().counter,
+          child: child,
+        );
+      },
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Dependency Injection'),
@@ -38,7 +32,7 @@ class _Switch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final container = Provider.of<CounterContainer>(context);
+    final container = context.watch<CounterContainer>();
     final counter = container.counter;
 
     return Switch(
@@ -57,13 +51,13 @@ class _FloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CounterInterface>(context);
+    final type =
+        context.select((CounterInterface counter) => counter.runtimeType);
 
     return FloatingActionButton(
-      onPressed: counter.increment,
+      onPressed: () => context.read<CounterInterface>().increment(),
       child: const Icon(Icons.add),
-      backgroundColor:
-          counter.runtimeType == DecCounter ? Colors.blue : Colors.green,
+      backgroundColor: type == DecCounter ? Colors.blue : Colors.green,
     );
   }
 }
@@ -73,7 +67,7 @@ class _CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<CounterInterface>(context);
+    final counter = context.watch<CounterInterface>();
 
     return Center(
       child: Column(
