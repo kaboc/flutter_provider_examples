@@ -1,45 +1,76 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../models/hex_counter.dart';
 import '../models/value_notifier_counter.dart';
 
-class ProxyProvider0Page extends StatefulWidget {
+class ProxyProvider0Page extends StatelessWidget {
   const ProxyProvider0Page();
 
   @override
-  _ProxyProvider0PageState createState() => _ProxyProvider0PageState();
-}
-
-class _ProxyProvider0PageState extends State<ProxyProvider0Page> {
-  int _value = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ProxyProvider0()'),
-      ),
-      body: ChangeNotifierProxyProvider0<VnCounter>(
-        create: (_) => VnCounter(),
-        update: (_, counter) => counter..value = _value,
-        child: const _CounterText(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () => setState(() => _value++),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<VnCounter>(
+          create: (_) => VnCounter(),
+        ),
+        Consumer<VnCounter>(
+          builder: (_, vnCounter, child) => ProxyProvider0<HexCounter>(
+            create: (_) => HexCounter(),
+            update: (_, prev) => prev..newValue = vnCounter.value,
+            child: child,
+          ),
+        ),
+      ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ProxyProvider0()'),
+        ),
+        body: const _CounterResults(),
+        floatingActionButton: const _FloatingButton(),
       ),
     );
   }
 }
 
-class _CounterText extends StatelessWidget {
-  const _CounterText();
+class _FloatingButton extends StatelessWidget {
+  const _FloatingButton();
 
   @override
   Widget build(BuildContext context) {
-    final counter = Provider.of<VnCounter>(context);
+    final counter = Provider.of<VnCounter>(context, listen: false);
+
+    return FloatingActionButton(
+      onPressed: counter.increment,
+      child: const Icon(Icons.add),
+    );
+  }
+}
+
+class _CounterResults extends StatelessWidget {
+  const _CounterResults();
+
+  @override
+  Widget build(BuildContext context) {
+    final decCounter = Provider.of<VnCounter>(context);
+    final hexCounter = Provider.of<HexCounter>(context);
 
     return Center(
-      child: Text(counter.value.toString()),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'Decimal',
+            style: TextStyle(fontSize: 16.0),
+          ),
+          Text(decCounter.value.toString()),
+          const SizedBox(height: 32.0),
+          const Text(
+            'Hexadecimal',
+            style: TextStyle(fontSize: 16.0),
+          ),
+          Text(hexCounter.hex),
+        ],
+      ),
     );
   }
 }
