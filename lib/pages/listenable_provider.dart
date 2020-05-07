@@ -13,17 +13,17 @@ class _ListenableProviderState extends State<ListenableProviderPage>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ListenableProvider()'),
-      ),
-      body: ListenableProvider<AnimationController>(
-        create: (_) => AnimationController(
-          duration: const Duration(seconds: 10),
-          vsync: this,
-        )..repeat(),
-        dispose: (_, controller) => controller.dispose(),
-        child: const Center(
+    return ListenableProvider<AnimationController>(
+      create: (_) => AnimationController(
+        duration: const Duration(seconds: 10),
+        vsync: this,
+      )..repeat(),
+      dispose: (_, controller) => controller.dispose(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ListenableProvider()'),
+        ),
+        body: const Center(
           child: _Spinner(),
         ),
       ),

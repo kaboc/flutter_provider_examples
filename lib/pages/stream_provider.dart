@@ -15,18 +15,18 @@ class _StreamProviderState extends State<StreamProviderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('StreamProvider()'),
-      ),
-      body: StreamProvider<int>(
-        create: (_) => _streamController.stream,
-        initialData: 0,
-        child: const _CounterText(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _streamController.sink.add(++_number),
-        child: const Icon(Icons.add),
+    return StreamProvider<int>(
+      create: (_) => _streamController.stream,
+      initialData: 0,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('StreamProvider()'),
+        ),
+        body: const _CounterText(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => _streamController.sink.add(++_number),
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

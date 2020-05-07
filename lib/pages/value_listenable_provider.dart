@@ -9,17 +9,17 @@ class VlProviderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final counter = VnCounter();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ValueListenableProvider()'),
-      ),
-      body: ValueListenableProvider<int>(
-        create: (_) => counter,
-        child: const _CounterText(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: counter.increment,
-        child: const Icon(Icons.add),
+    return ValueListenableProvider<int>(
+      create: (_) => counter,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ValueListenableProvider()'),
+        ),
+        body: const _CounterText(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: counter.increment,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

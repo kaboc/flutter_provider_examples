@@ -14,17 +14,17 @@ class _CnProviderValueState extends State<CnProviderValuePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ChangeNotifierProvider.value()'),
-      ),
-      body: ChangeNotifierProvider<CnCounter>.value(
-        value: _counter,
-        child: const _CounterText(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _counter.increment,
-        child: const Icon(Icons.add),
+    return ChangeNotifierProvider<CnCounter>.value(
+      value: _counter,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ChangeNotifierProvider.value()'),
+        ),
+        body: const _CounterText(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _counter.increment,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

@@ -14,18 +14,18 @@ class _ProviderValueState extends State<ProviderValuePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Provider.value()'),
-      ),
-      body: Provider<CounterBloc>.value(
-        value: _bloc,
-        child: const _CounterText(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _bloc.increment,
-        child: const Icon(Icons.add),
-      ),
+    return Provider<CounterBloc>.value(
+      value: _bloc,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Provider.value()'),
+        ),
+        body: const _CounterText(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _bloc.increment,
+          child: const Icon(Icons.add),
+        ),
+      )
     );
   }
 

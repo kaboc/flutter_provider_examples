@@ -14,17 +14,17 @@ class _VlProviderValueState extends State<VlProviderValuePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ValueListenableProvider.value()'),
-      ),
-      body: ValueListenableProvider<int>.value(
-        value: _counter,
-        child: const _CounterText(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _counter.increment,
-        child: const Icon(Icons.add),
+    return ValueListenableProvider<int>.value(
+      value: _counter,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ValueListenableProvider.value()'),
+        ),
+        body: const _CounterText(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _counter.increment,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

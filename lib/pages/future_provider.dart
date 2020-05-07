@@ -7,17 +7,17 @@ class FutureProviderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('FutureProvider()'),
+    return FutureProvider<String>(
+      create: (_) => Future.delayed(
+        const Duration(seconds: 3),
+            () => '3 seconds elapsed.',
       ),
-      body: FutureProvider<String>(
-        create: (_) => Future.delayed(
-          const Duration(seconds: 3),
-          () => '3 seconds elapsed.',
+      initialData: 'Wait for 3 seconds...',
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('FutureProvider()'),
         ),
-        initialData: 'Wait for 3 seconds...',
-        child: const _FutureText(),
+        body: const _FutureText(),
       ),
     );
   }
