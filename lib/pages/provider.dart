@@ -46,11 +46,12 @@ class _CounterText extends StatelessWidget {
     // used instead.
     final bloc = Provider.of<CounterBloc>(context, listen: false);
 
-    return StreamBuilder<String>(
+    return StreamBuilder<int>(
       stream: bloc.value,
+      initialData: 0,
       builder: (_, snapshot) {
         return Center(
-          child: Text(snapshot.data ?? '0'),
+          child: Text(snapshot.data.toString()),
         );
       },
     );

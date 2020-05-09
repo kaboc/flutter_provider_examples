@@ -12,7 +12,7 @@ class ProxyProvider0Page extends StatelessWidget {
       create: (_) => VnCounter(),
       builder: (context, child) => ProxyProvider0<HexCounter>(
         create: (_) => HexCounter(),
-        update: (_, prev) => prev
+        update: (context, prev) => prev
           ..newValue = context.select((VnCounter vnCounter) => vnCounter.value),
         child: child,
       ),
