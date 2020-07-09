@@ -35,7 +35,7 @@ class ListPage extends StatelessWidget {
           _ListTile(title: 'ProxyProvider()', page: ProxyProviderPage()),
           _ListTile(title: 'ProxyProvider0()', page: ProxyProvider0Page()),
           _ListTile(title: 'Selector()', page: SelectorPage()),
-          _ListTile(title: 'ReassembleHandler()', page: ReassembleHandlerPage()),
+          _ListTile(title: 'ReassembleHandler', page: ReassembleHandlerPage()),
           _ListTile(title: 'Dependency Injection', page: DependencyInjectionPage()),
         ],
       ),

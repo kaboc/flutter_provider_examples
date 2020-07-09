@@ -20,7 +20,7 @@ class ReassemblingCounterNotifier extends ValueNotifier<int> with ReassembleHand
   void _showRebuild() {
     locator<GlobalKey<ScaffoldState>>().currentState.showSnackBar(
       const SnackBar(
-        duration: Duration(milliseconds: 400),
+        duration: Duration(milliseconds: 600),
         behavior: SnackBarBehavior.floating,
         content: Text('Rebuilt.'),
       ),

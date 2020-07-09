@@ -19,7 +19,7 @@ class ReassembleHandlerPage extends StatelessWidget {
       builder: (context, child) => Scaffold(
         key: context.watch<GlobalKey<ScaffoldState>>(),
         appBar: AppBar(
-          title: const Text('ReassembleHandler()'),
+          title: const Text('ReassembleHandler'),
         ),
         body: child,
         floatingActionButton: const _FloatingButton(),
