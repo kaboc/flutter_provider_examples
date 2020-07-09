@@ -2,10 +2,10 @@
 
 This repository shows how to use the provider package.
 
-![Screemcast1](doc/images/screencast1.gif)
-![Screemcast2](doc/images/screencast2.gif)  
-![Screemcast3](doc/images/screencast3.gif)
-![Screemcast4](doc/images/screencast4.gif)
+![Screencast1](doc/images/screencast1.gif)
+![Screencast2](doc/images/screencast2.gif)
+![Screencast3](doc/images/screencast3.gif)
+![Screencast4](doc/images/screencast4.gif)
 
 Each example is described in my articles below:
 

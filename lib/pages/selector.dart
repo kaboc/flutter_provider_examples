@@ -52,7 +52,7 @@ class _CounterText extends StatelessWidget {
           ),
           Selector<CnCounter, int>(
             selector: (_, counter) => counter.number,
-            shouldRebuild: (_, next) => next % 2 == 0,
+            shouldRebuild: (_, next) => next.isEven,
             builder: (_, number, __) => Text(number.toString()),
           ),
         ],
