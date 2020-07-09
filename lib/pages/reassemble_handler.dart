@@ -25,7 +25,7 @@ class ReassembleHandlerPage extends StatelessWidget {
         floatingActionButton: const _FloatingButton(),
       ),
       child: const Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(32.0),
         child: _CounterText(),
       ),
     );
@@ -56,13 +56,22 @@ class _CounterText extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const Text(
-            'Not only tapping on the FAB but also hot-reloading '
-            'increments the counter value.',
+            'Not only tapping on the FAB but also hot reloading '
+            'increments the counter value.\n\n'
+            'To see it happen, hot reload the app, or press the "Redraw" '
+            'button to simulate the redraw that occurs after a hot reload.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 15.0),
           ),
           const SizedBox(height: 16.0),
           Text(value.toString()),
+          const SizedBox(height: 16.0),
+          RaisedButton(
+            child: const Text('Redraw'),
+            onPressed: () {
+              WidgetsBinding.instance.reassembleApplication();
+            },
+          ),
         ],
       ),
     );
